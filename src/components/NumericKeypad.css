@@ -1,0 +1,58 @@
+.keypad {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.keypad-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.keypad-btn {
+    width: 72px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.keypad-btn:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.keypad-btn-submit {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    border: none;
+}
+
+.keypad-btn-delete {
+    font-size: 24px;
+}
+
+@media (max-width: 600px) {
+    .keypad {
+        max-width: 260px;
+        gap: 10px;
+    }
+
+    .keypad-row {
+        gap: 10px;
+    }
+
+    .keypad-btn {
+        width: 64px;
+        height: 50px;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,581 @@
+/* ===== Dashboard ===== */
+.dashboard {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.dashboard * {
+    box-sizing: border-box;
+}
+
+/* ===== Bank Balance Card ===== */
+.balance-card {
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark, #4834a8));
+    color: white;
+    box-shadow: 0 6px 24px rgba(108, 92, 231, 0.25);
+    width: 100%;
+}
+
+.balance-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.balance-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.balance-value {
+    font-size: 28px;
+    font-weight: 800;
+    display: block;
+}
+
+.balance-value.negative {
+    color: #ffaaaa;
+}
+
+.balance-edit-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.balance-edit-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.balance-initial {
+    font-size: 12px;
+    opacity: 0.7;
+    display: block;
+}
+
+/* ===== Summary Cards ===== */
+.summary-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all var(--transition);
+}
+
+.summary-label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.summary-value {
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+}
+
+.summary-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    opacity: 0.12;
+}
+
+/* ===== Monthly Budget Bar ===== */
+.monthly-bar-card {
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    width: 100%;
+}
+
+.monthly-bar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.monthly-bar-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.monthly-bar-amounts {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.monthly-bar-amounts small {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.monthly-bar-track {
+    width: 100%;
+    height: 6px;
+    background: var(--bg-input);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.monthly-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.monthly-bar-remaining {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.monthly-bar-remaining.negative {
+    color: var(--danger);
+}
+
+/* Quick Category Row */
+.quick-category-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 2px 0;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+.quick-category-row::-webkit-scrollbar {
+    display: none;
+}
+
+.quick-cat-chip {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 80px;
+}
+
+.quick-cat-over {
+    border-color: rgba(231, 76, 60, 0.2);
+    background: rgba(231, 76, 60, 0.04);
+}
+
+.quick-cat-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.quick-cat-amount {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.quick-cat-over .quick-cat-amount {
+    color: var(--danger);
+}
+
+/* ===== Cards ===== */
+.card {
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+/* Add Expense */
+.add-expense-form {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.amount-input {
+    width: 100px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all var(--transition);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.amount-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+    outline: none;
+}
+
+.no-tags-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.add-btn {
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(108, 92, 231, 0.2);
+    transition: all var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.add-btn:disabled {
+    cursor: not-allowed;
+}
+
+.add-btn-full {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* Tag Section */
+.tag-section {
+    margin-top: 10px;
+}
+
+.tag-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag-chip {
+    padding: 5px 12px;
+    border-radius: 18px;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--bg-input);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.tag-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.tag-chip-active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 16px;
+}
+
+.modal-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: var(--shadow-xl);
+}
+
+.modal-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.modal-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.modal-input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    transition: all var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.modal-btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.modal-btn-secondary {
+    background: var(--bg-input);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.modal-btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+/* Expense List Section */
+.expense-list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-header .card-title {
+    margin-bottom: 0;
+}
+
+.expense-count {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.long-press-hint {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: -4px;
+}
+
+.expense-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px 16px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ===== Mobile 600px ===== */
+@media (max-width: 600px) {
+    .dashboard {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .balance-card {
+        padding: 16px;
+    }
+
+    .balance-value {
+        font-size: 22px;
+    }
+
+    .balance-initial {
+        font-size: 11px;
+    }
+
+    .summary-row {
+        gap: 8px;
+    }
+
+    .summary-card {
+        padding: 10px 12px;
+    }
+
+    .summary-label {
+        font-size: 10px;
+    }
+
+    .summary-value {
+        font-size: 15px;
+    }
+
+    .summary-icon {
+        font-size: 16px;
+        right: 8px;
+    }
+
+    .monthly-bar-card {
+        padding: 12px;
+    }
+
+    .monthly-bar-label,
+    .monthly-bar-amounts {
+        font-size: 12px;
+    }
+
+    .quick-cat-chip {
+        padding: 6px 10px;
+        min-width: 70px;
+    }
+
+    .quick-cat-name {
+        font-size: 9px;
+    }
+
+    .quick-cat-amount {
+        font-size: 12px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .card-title {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .add-expense-form {
+        flex-direction: column;
+    }
+
+    .amount-input {
+        width: 100%;
+    }
+
+    .tag-chip {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+
+    .add-btn-full {
+        padding: 11px;
+        font-size: 13px;
+    }
+
+    .modal-card {
+        padding: 20px;
+    }
+
+    .modal-title {
+        font-size: 15px;
+    }
+
+    .modal-text {
+        font-size: 12px;
+    }
+
+    .modal-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,181 @@
+/* ===== App Shell ===== */
+.app-shell {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ===== Layout: Side Nav + Main ===== */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== Side Navbar (Desktop) ===== */
+.side-nav {
+    width: 220px;
+    min-height: 100vh;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 12px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.side-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.side-nav-icon {
+    font-size: 26px;
+}
+
+.side-nav-title {
+    font-size: 17px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.side-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.side-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-align: left;
+    width: 100%;
+}
+
+.side-nav-btn:hover {
+    background: var(--bg-input);
+    color: var(--text-primary);
+}
+
+.side-nav-active {
+    background: rgba(108, 92, 231, 0.1) !important;
+    color: var(--accent) !important;
+    font-weight: 600;
+}
+
+.side-nav-btn-icon {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.side-nav-btn-label {
+    white-space: nowrap;
+}
+
+.side-nav-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+}
+
+.side-nav-lock {
+    color: var(--text-muted) !important;
+}
+
+/* ===== Main Content ===== */
+.app-main {
+    flex: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    min-width: 0;
+}
+
+.page-content {
+    flex: 1;
+}
+
+/* ===== Bottom Nav (Mobile) ===== */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--glass-bg, var(--bg-secondary));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    padding: 4px 0;
+    padding-bottom: max(4px, env(safe-area-inset-bottom));
+    z-index: 100;
+}
+
+.bottom-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 6px 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color var(--transition);
+}
+
+.bottom-nav-active {
+    color: var(--accent);
+}
+
+.bottom-nav-icon {
+    font-size: 18px;
+}
+
+.bottom-nav-label {
+    font-size: 9px;
+    font-weight: 600;
+}
+
+/* ===== Responsive: Mobile ≤600px ===== */
+@media (max-width: 600px) {
+    .side-nav {
+        display: none;
+    }
+
+    .bottom-nav {
+        display: flex;
+    }
+
+    .page-content {
+        padding-bottom: 60px;
+    }
+}
+
+/* Hide header lock button & branding on desktop (in sidebar) */
+@media (min-width: 601px) {
+    .lock-btn {
+        display: none;
+    }
+}

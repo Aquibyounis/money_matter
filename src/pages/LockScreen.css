@@ -1,0 +1,115 @@
+.lock-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.lock-content {
+    text-align: center;
+    width: 100%;
+    max-width: 340px;
+}
+
+.lock-icon-container {
+    margin-bottom: 24px;
+}
+
+.lock-emoji {
+    font-size: 56px;
+    display: inline-block;
+}
+
+.lock-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.lock-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+/* PIN Dots */
+.pin-dots {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.pin-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-light);
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.pin-dot-filled {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.4);
+}
+
+/* Shake animation */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    50%,
+    90% {
+        transform: translateX(-6px);
+    }
+
+    30%,
+    70% {
+        transform: translateX(6px);
+    }
+}
+
+.pin-shake {
+    animation: shake 0.5s ease;
+}
+
+.lock-error {
+    color: var(--danger);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .lock-screen {
+        padding: 16px;
+    }
+
+    .lock-emoji {
+        font-size: 44px;
+    }
+
+    .lock-title {
+        font-size: 20px;
+    }
+
+    .lock-subtitle {
+        font-size: 13px;
+        margin-bottom: 24px;
+    }
+
+    .pin-dots {
+        gap: 12px;
+    }
+}

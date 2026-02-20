@@ -1,0 +1,117 @@
+.expense-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition);
+}
+
+.expense-item-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.expense-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.expense-item-desc {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.expense-item-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.expense-item-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.expense-item-amount {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--danger);
+}
+
+/* Long-press state */
+.expense-item-pressing {
+    background: rgba(231, 76, 60, 0.06) !important;
+    border-color: rgba(231, 76, 60, 0.2) !important;
+}
+
+.long-press-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    overflow: hidden;
+}
+
+.long-press-fill {
+    height: 100%;
+    background: var(--danger);
+    animation: longPressFill 0.6s linear forwards;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+@keyframes longPressFill {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .expense-item {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .expense-item-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .expense-item-desc {
+        font-size: 13px;
+    }
+
+    .expense-item-meta {
+        font-size: 11px;
+    }
+
+    .expense-item-amount {
+        font-size: 13px;
+    }
+}
